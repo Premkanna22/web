@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">
+</script>
+<style>
+a{
+display:inline;
+margin-left:150px;
+margin-right:150px;
+font-weight: bold;
+}
+</style>
+</head>
+
+<body ng-app="myApp">
+<p> Switching between Layouts:
+<a href="#!/">Main</a>
+<a href="#!item1">Item 1</a>
+<a href="#!item2">Item 2</a>
+</p>
+<div ng-view></div>
+<script>
+const app = angular.module("myApp", ["ngRoute"]);
+app.config(function ($routeProvider) {
+$routeProvider
+.when("/item1", {
+templateUrl:"item1.html"
+})
+.when("/item2", {
+ templateUrl: "item2.html"
+});
+});
+</script>
+</body>
+</html>
